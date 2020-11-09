@@ -29,10 +29,10 @@ module if_top(clk, reset, hsync, vsync,
     .hpos(hpos),
     .vpos(vpos)
   );
-    
-  always @(switches_p1[4]) begin
+
+  always @(*) begin
     if (switches_p1[4]) begin
-      rgb = 1;
+      rgb = {2'b0, display_on};
     end else begin
       rgb = 0;
     end
